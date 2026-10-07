@@ -1,0 +1,17 @@
+# Main address: https://mergepdftool.rank-path.com
+# The www address redirects to it, so both links work.
+
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "https://www.mergepdftool.rank-path.com/*"
+  to = "https://mergepdftool.rank-path.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.mergepdftool.rank-path.com/*"
+  to = "https://mergepdftool.rank-path.com/:splat"
+  status = 301
+  force = true

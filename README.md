@@ -6,6 +6,24 @@ Homepage design for Mergepdftool, a set of simple PDF tools built by RankPath La
 - English by default, Thai with the EN/TH switch. You can also link straight to Thai with `?lang=th`.
 - Mobile first. Tested at 320, 375, 1280 and 1440 px wide.
 
+## Domain
+
+Main address: **https://mergepdftool.rank-path.com**
+`www.mergepdftool.rank-path.com` redirects to it with a 301 (set in `netlify.toml`). The page canonical, `robots.txt` and `sitemap.xml` all use the main address.
+
+Setup (one time):
+
+1. Netlify: create a site from `rankpath/mergepdf`. Leave the build command empty. The publish folder comes from `netlify.toml`.
+2. Netlify → Domain management: add `mergepdftool.rank-path.com`, then add `www.mergepdftool.rank-path.com` as a domain alias.
+3. Wherever the DNS for `rank-path.com` is managed (Namecheap Advanced DNS or cPanel Zone Editor), add:
+
+   | Type | Host | Value |
+   |---|---|---|
+   | CNAME | `mergepdftool` | `<your-site>.netlify.app` |
+   | CNAME | `www.mergepdftool` | `<your-site>.netlify.app` |
+
+4. Wait for DNS to update. Netlify then adds the HTTPS certificate on its own.
+
 ## Brand (RankPath Labs guideline)
 
 | Token | Value | Use |
