@@ -1,10 +1,44 @@
 # Mergepdftool
 
-Homepage design for Mergepdftool, a set of simple PDF tools built by RankPath Labs.
+Simple PDF tools built by RankPath Labs. Static site, no build step: deploy the folder to Netlify.
 
-- One HTML file (`index.html`), no build step. Open it in a browser or deploy the folder to Netlify.
 - English by default, Thai with the EN/TH switch. You can also link straight to Thai with `?lang=th`.
 - Mobile first. Tested at 320, 375, 1280 and 1440 px wide.
+
+## Files
+
+| Path | What it is |
+|---|---|
+| `index.html` | Homepage with all 24 tools and category filters |
+| `merge-pdf/index.html` | **Merge PDF** tool (working) |
+| `assets/site.css` | Shared styles: brand tokens, header, footer, buttons |
+| `assets/tool.css` | Shared styles for tool pages: drop zone, file cards, merge bar, result |
+| `assets/site.js` | Shared script: EN/TH switch, mobile menu, Thai text for header, footer and tool names |
+| `assets/vendor/` | PDF libraries, hosted with the site (no third-party CDN) |
+
+Each page keeps its own Thai text in `window.MPT_PAGE` before it loads `assets/site.js`.
+
+To preview locally, run a small web server from the repo folder (tool pages need it), for example `python3 -m http.server`, then open `http://localhost:8000/`.
+
+## Merge PDF
+
+Everything runs in the browser. Files are never uploaded.
+
+- Add files by drag and drop (anywhere on the page) or the Select button. Non-PDF files are skipped with a message.
+- Each file shows a first-page preview, page count and size. Password-protected and damaged files are flagged and skipped.
+- Change the order by dragging the cards (touch: press and hold) or with the arrow buttons. Sort A–Z, remove one, or clear all.
+- Name the new file, merge, then download. The PDF's Producer and Creator fields say Mergepdftool.
+- Bookmarks from the original files are not kept (pdf-lib limitation). Password-protected files are not supported yet.
+
+Libraries (loaded only when the user adds files):
+
+| Library | Version | License | Used for |
+|---|---|---|---|
+| pdf-lib | 1.17.1 | MIT | Reading page counts and merging |
+| pdf.js (pdfjs-dist) | 3.11.174 | Apache-2.0 | First-page previews (`isEvalSupported: false`) |
+| SortableJS | 1.15.2 | MIT | Drag to reorder, mouse and touch |
+
+License files sit next to each library in `assets/vendor/`.
 
 ## Domain
 
@@ -36,7 +70,7 @@ Setup (one time):
 
 Fonts: Manrope (English) and Noto Sans Thai (Thai). Thai text has no letter-spacing or uppercase, and body line height is 1.7.
 
-## Page sections
+## Homepage sections
 
 1. Header: logo, main links, EN/TH switch, Merge PDFs button (menu on mobile)
 2. Hero: headline, 2 buttons, 3 trust points, Merge PDF preview (illustration only)
@@ -49,6 +83,7 @@ Fonts: Manrope (English) and Noto Sans Thai (Thai). Thai text has no letter-spac
 ## Check before launch
 
 - Claims: "Free to start", "Nothing to install", "Works on phone and desktop". Keep them only if the live product does this.
-- Tool links (`/merge-pdf`, `/split-pdf`, ...) point to pages that are not built yet.
+- Only Merge PDF is built. The other tool links (`/split-pdf/`, `/compress-pdf/`, ...) do not have pages yet.
+- Merge PDF was tested in Chromium (desktop and mobile size). Test once on a real iPhone (Safari) and Android phone before launch.
 - Footer link to `https://rank-path.com` has not been checked.
 - The Mergepdftool logo is a first draft made in SVG. It is not an approved brand asset yet.

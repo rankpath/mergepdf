@@ -15,3 +15,9 @@
   to = "https://mergepdftool.rank-path.com/:splat"
   status = 301
   force = true
+
+# Library files have the version in their folder name, so they can be cached for a long time
+[[headers]]
+  for = "/assets/vendor/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
