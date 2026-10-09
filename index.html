@@ -7,7 +7,12 @@
 <meta name="description" content="Merge, split, compress, convert, rotate, protect and sign PDFs in a few clicks. Simple PDF tools for everyday work, built by RankPath Labs.">
 <meta name="theme-color" content="#061638">
 <link rel="canonical" href="https://mergepdftool.rank-path.com/">
+<link rel="alternate" hreflang="en" href="https://mergepdftool.rank-path.com/">
+<link rel="alternate" hreflang="th" href="https://mergepdftool.rank-path.com/th/">
+<link rel="alternate" hreflang="x-default" href="https://mergepdftool.rank-path.com/">
 <meta property="og:url" content="https://mergepdftool.rank-path.com/">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="th_TH">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Mergepdftool">
 <meta property="og:title" content="Mergepdftool — All your PDF tools in one place">
@@ -16,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
@@ -81,12 +86,12 @@
     </nav>
 
     <div class="bar-actions">
-      <div class="lang" role="group" aria-label="Language" data-i18n-aria="aria.lang">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="th" aria-pressed="false" lang="th">TH</button>
-      </div>
+      <nav class="lang" aria-label="Language" data-i18n-aria="aria.lang">
+        <a href="/" hreflang="en" lang="en" data-lang-link="en" aria-current="true">EN</a>
+        <a href="/th/" hreflang="th" lang="th" data-lang-link="th">TH</a>
+      </nav>
       <a class="btn btn-primary btn-sm" href="/merge-pdf/" data-i18n="nav.cta">Merge PDFs</a>
-      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu" data-i18n-aria="aria.menu">
         <svg class="ic i-open" aria-hidden="true"><use href="#i-menu"/></svg>
         <svg class="ic i-close" aria-hidden="true"><use href="#i-close"/></svg>
       </button>
@@ -443,77 +448,7 @@
   </div>
 </footer>
 
-<script>
-  window.MPT_PAGE = {
-    th: {
-      'hero.eyebrow': 'เครื่องมือ PDF ใช้ง่าย สำหรับงานทุกวัน',
-      'hero.h1': '<span class="nw">เครื่องมือ PDF</span> <span class="nw">ครบทุกงาน</span><span class="accent">รวมไว้ในที่เดียว</span>',
-      'hero.lede': 'รวม แยก บีบอัด แปลงไฟล์ หมุนหน้า ใส่รหัส และเซ็นเอกสาร PDF ได้ในไม่กี่คลิก ขั้นตอนชัดเจน หน้าจอไม่รก และเริ่มใช้ได้ฟรี',
-      'hero.cta1': 'รวมไฟล์ PDF',
-      'hero.cta2': 'ดูเครื่องมือทั้งหมด',
-      'trust.1': 'เริ่มใช้ได้ฟรี',
-      'trust.2': 'ไม่ต้องติดตั้งโปรแกรม',
-      'trust.3': 'ใช้ได้ทั้งมือถือและคอมพิวเตอร์',
-
-      'pv.meta': '3 ไฟล์ · ลากเพื่อสลับลำดับ',
-      'pv.p2': '2 หน้า', 'pv.p6': '6 หน้า', 'pv.p3': '3 หน้า', 'pv.p11': '11 หน้า',
-      'pv.btn': 'รวมไฟล์',
-
-      'tools.kicker': 'เครื่องมือทั้งหมด',
-      'tools.title': 'เลือกเครื่องมือให้ตรงกับงาน',
-      'tools.sub': 'เลือกหมวดงาน แล้วเปิดเครื่องมือที่ต้องการ ทุกเครื่องมือใช้ขั้นตอนง่ายๆ แบบเดียวกัน',
-
-      'd.merge': 'รวมหลายไฟล์ PDF เป็นไฟล์เดียว เรียงลำดับได้ตามต้องการ',
-      'd.split': 'ดึงหน้าเดียวหรือช่วงหน้าที่ต้องการ ออกมาเป็นไฟล์ PDF แยก',
-      'd.organize': 'สลับลำดับ ลบ หรือเพิ่มหน้า แล้วบันทึกเป็นไฟล์ใหม่ที่เรียบร้อย',
-      'd.rotate': 'หมุนหน้าที่ตะแคงหรือกลับหัว ให้ตั้งตรงอ่านง่าย',
-      'd.scan': 'ใช้กล้องมือถือสแกนเอกสารกระดาษ แล้วบันทึกเป็น PDF',
-      'd.compress': 'ลดขนาดไฟล์ PDF ให้เล็กลง ส่งอีเมลและอัปโหลดได้ง่ายขึ้น',
-      'd.repair': 'ช่วยกู้เนื้อหาจากไฟล์ PDF ที่เสียหรือเปิดไม่ได้',
-      'd.ocr': 'แปลงหน้าที่สแกนมา ให้ค้นหาและคัดลอกข้อความได้',
-      'd.pdf2word': 'แปลง PDF เป็นไฟล์ Word ที่แก้ไขต่อได้',
-      'd.word2pdf': 'บันทึกไฟล์ DOC และ DOCX เป็น PDF ที่เปิดเครื่องไหนก็หน้าตาเหมือนเดิม',
-      'd.pdf2excel': 'ย้ายตารางจาก PDF ไปเป็นสเปรดชีตที่ใช้งานต่อได้',
-      'd.jpg2pdf': 'รวมรูปถ่ายและรูปภาพหลายรูป เป็น PDF ไฟล์เดียวที่เรียบร้อย',
-      'd.pdf2jpg': 'บันทึกแต่ละหน้าเป็นรูปภาพ หรือดึงรูปที่อยู่ในไฟล์ออกมา',
-      'd.edit': 'เพิ่มข้อความ รูปภาพ และรูปทรงลงบนหน้าไหนก็ได้',
-      'd.pagenum': 'ใส่เลขหน้า เลือกตำแหน่ง ขนาด และรูปแบบได้เอง',
-      'd.watermark': 'ประทับข้อความหรือโลโก้ลงบนหน้า เพื่อบอกเจ้าของหรือสถานะเอกสาร',
-      'd.sign': 'เซ็นเอกสารด้วยตัวเอง หรือส่งให้คนอื่นเซ็น',
-      'd.protect': 'ตั้งรหัสผ่าน ให้เปิดไฟล์ได้เฉพาะคนที่ควรเห็น',
-      'd.unlock': 'เอารหัสผ่านออกจากไฟล์ PDF ที่คุณมีสิทธิ์เปิดอยู่แล้ว',
-      'd.redact': 'ปิดทับข้อความและรูปที่เป็นข้อมูลส่วนตัวแบบถาวร',
-      'd.summarize': 'สรุปประเด็นสำคัญจากเอกสารยาวๆ ให้อ่านจบได้เร็วขึ้น',
-      'd.chat': 'พิมพ์คำถาม แล้วได้คำตอบจากเนื้อหาในไฟล์ของคุณ',
-      'd.translate': 'แปลเอกสารเป็นภาษาอื่น โดยคงรูปแบบหน้าให้ใกล้เคียงต้นฉบับ',
-      'd.workflow': 'ต่อหลายเครื่องมือเป็นชุดเดียว เช่น รวม → บีบอัด → ใส่รหัส แล้วสั่งทำงานในครั้งเดียว',
-
-      'steps.kicker': 'วิธีใช้งาน',
-      'steps.title': 'เสร็จได้ใน 3 ขั้นตอน',
-      's1.t': 'เลือกเครื่องมือ', 's1.d': 'เลือกงานที่ต้องการ เช่น รวมไฟล์ บีบอัด หรือแปลงไฟล์',
-      's2.t': 'เพิ่มไฟล์', 's2.d': 'ลากไฟล์มาวาง หรือเลือกไฟล์จากเครื่องของคุณ',
-      's3.t': 'ดาวน์โหลดไฟล์', 's3.d': 'ตรวจไฟล์ใหม่ แล้วกดบันทึก เท่านี้ก็เสร็จ',
-
-      'ways.kicker': 'ใช้งานแบบที่คุณถนัด',
-      'ways.title': 'ใช้ได้ทุกที่ที่คุณทำงาน',
-      'ways.sub': 'เปิดในเบราว์เซอร์แล้วเริ่มได้เลย ไม่ต้องดาวน์โหลด ไม่ต้องตั้งค่า',
-      'w1.t': 'บนคอมพิวเตอร์', 'w1.d': 'เปิดเครื่องมือในเบราว์เซอร์ได้ทั้ง Windows, Mac และ Linux ไม่ต้องติดตั้งหรืออัปเดตโปรแกรม',
-      'w2.t': 'บนมือถือ', 'w2.d': 'เครื่องมือชุดเดียวกัน ออกแบบให้ใช้บนจอเล็กได้สะดวก สแกน เซ็น และส่งต่อได้จากมือถือ',
-      'w3.t': 'สำหรับทีม', 'w3.d': 'เวิร์กโฟลว์ที่ใช้ร่วมกันและแพ็กเกจสำหรับทีม เหมาะกับธุรกิจที่จัดการเอกสารจำนวนมาก',
-      'ways.soon': 'เร็วๆ นี้',
-
-      'cta.title': 'มีไฟล์ PDF หลายไฟล์ที่ต้องรวม?',
-      'cta.sub': 'รวมเป็นไฟล์เดียวที่เรียบร้อยได้ในไม่กี่คลิก',
-      'cta.btn1': 'รวมไฟล์ PDF เลย',
-      'cta.btn2': 'ดูเครื่องมือทั้งหมด'
-    },
-    meta: {
-      en: { title: 'Mergepdftool — All your PDF tools in one place', desc: 'Merge, split, compress, convert, rotate, protect and sign PDFs in a few clicks. Simple PDF tools for everyday work, built by RankPath Labs.' },
-      th: { title: 'Mergepdftool — เครื่องมือ PDF ครบ รวมไว้ในที่เดียว', desc: 'รวม แยก บีบอัด แปลงไฟล์ หมุนหน้า ใส่รหัส และเซ็นเอกสาร PDF ได้ในไม่กี่คลิก เครื่องมือ PDF ใช้ง่าย สำหรับงานทุกวัน พัฒนาโดย RankPath Labs' }
-    }
-  };
-</script>
-<script src="assets/site.js"></script>
+<script src="/assets/site.js"></script>
 <script>
 (function () {
   'use strict';
@@ -546,7 +481,6 @@
   document.querySelectorAll('[data-goto-filter]').forEach(function (a) {
     a.addEventListener('click', function () { applyFilter(a.getAttribute('data-goto-filter')); });
   });
-  MPT.onLang(function () { countEl.textContent = countText(visible); });
 
   /* Other pages link here with ?filter=convert#tools */
   applyFilter(new URLSearchParams(location.search).get('filter') || 'all');

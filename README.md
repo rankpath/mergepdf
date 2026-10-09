@@ -2,7 +2,7 @@
 
 Simple PDF tools built by RankPath Labs. Static site, no build step: deploy the folder to Netlify.
 
-- English by default, Thai with the EN/TH switch. You can also link straight to Thai with `?lang=th`.
+- English at `/`, Thai at `/th/`. Each language has its own URL, canonical and hreflang tags, so Google can index both.
 - Mobile first. Tested at 320, 375, 1280 and 1440 px wide.
 
 ## Files
@@ -13,12 +13,27 @@ Simple PDF tools built by RankPath Labs. Static site, no build step: deploy the 
 | `merge-pdf/index.html` | **Merge PDF** tool (working) |
 | `assets/site.css` | Shared styles: brand tokens, header, footer, buttons |
 | `assets/tool.css` | Shared styles for tool pages: drop zone, file cards, merge bar, result |
-| `assets/site.js` | Shared script: EN/TH switch, mobile menu, Thai text for header, footer and tool names |
+| `assets/site.js` | Shared script: mobile menu, page language (`MPT.lang`) |
 | `assets/vendor/` | PDF libraries, hosted with the site (no third-party CDN) |
+| `th/` | Thai pages. **Made by the script below, do not edit by hand** |
+| `i18n/th.json` | All Thai text, by page |
+| `scripts/build-th.mjs` | Builds `th/` and `sitemap.xml` from the English pages and `i18n/th.json` |
 
-Each page keeps its own Thai text in `window.MPT_PAGE` before it loads `assets/site.js`.
+## Thai pages
 
-To preview locally, run a small web server from the repo folder (tool pages need it), for example `python3 -m http.server`, then open `http://localhost:8000/`.
+The English pages are the source. Text that needs Thai has `data-i18n="key"` (or `data-i18n-aria="key"` for an aria-label), and the Thai text for each key is in `i18n/th.json`.
+
+After you change an English page or the Thai text, run:
+
+```
+node scripts/build-th.mjs
+```
+
+It writes `th/...` and `sitemap.xml`, and stops without writing if any key has no Thai text. No npm install is needed. Commit the generated files: Netlify serves them as they are.
+
+To add a new page: build the English page, add its Thai text under `pages` in `i18n/th.json`, then run the script.
+
+To preview locally, run a small web server from the repo folder (pages load files from `/assets/`), for example `python3 -m http.server`, then open `http://localhost:8000/`.
 
 ## Merge PDF
 

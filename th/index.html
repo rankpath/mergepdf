@@ -1,0 +1,491 @@
+<!doctype html>
+<!-- Thai page made by scripts/build-th.mjs from /index.html and i18n/th.json. Edit those, not this file. -->
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mergepdftool — เครื่องมือ PDF ครบ รวมไว้ในที่เดียว</title>
+<meta name="description" content="รวม แยก บีบอัด แปลงไฟล์ หมุนหน้า ใส่รหัส และเซ็นเอกสาร PDF ได้ในไม่กี่คลิก เครื่องมือ PDF ใช้ง่าย สำหรับงานทุกวัน พัฒนาโดย RankPath Labs">
+<meta name="theme-color" content="#061638">
+<link rel="canonical" href="https://mergepdftool.rank-path.com/th/">
+<link rel="alternate" hreflang="en" href="https://mergepdftool.rank-path.com/">
+<link rel="alternate" hreflang="th" href="https://mergepdftool.rank-path.com/th/">
+<link rel="alternate" hreflang="x-default" href="https://mergepdftool.rank-path.com/">
+<meta property="og:url" content="https://mergepdftool.rank-path.com/th/">
+<meta property="og:locale" content="th_TH">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mergepdftool">
+<meta property="og:title" content="Mergepdftool — เครื่องมือ PDF ครบ รวมไว้ในที่เดียว">
+<meta property="og:description" content="รวม แยก บีบอัด แปลงไฟล์ หมุนหน้า ใส่รหัส และเซ็นเอกสาร PDF ได้ในไม่กี่คลิก">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect x='3' y='2' width='19' height='24' rx='4.5' fill='%2300A6F5'/%3E%3Crect x='12' y='10' width='21' height='24' rx='4.5' fill='%230057E8' stroke='%23fff' stroke-width='2.5'/%3E%3Cpath d='M18 16v2.5a3.5 3.5 0 0 0 3.5 3.5h2a3.5 3.5 0 0 0 3.5-3.5V16M22.5 22v7M20 26.5l2.5 2.5 2.5-2.5' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="logo-mark" viewBox="0 0 36 36">
+    <rect x="3" y="2" width="19" height="24" rx="4.5" fill="#00A6F5"/>
+    <rect x="12" y="10" width="21" height="24" rx="4.5" fill="#0057E8" stroke="#fff" stroke-width="2.5"/>
+    <path d="M18 16v2.5a3.5 3.5 0 0 0 3.5 3.5h2a3.5 3.5 0 0 0 3.5-3.5V16M22.5 22v7M20 26.5l2.5 2.5 2.5-2.5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="i-merge" viewBox="0 0 24 24"><path d="M6 3v4a5 5 0 0 0 5 5h2a5 5 0 0 0 5-5V3"/><path d="M12 12v9"/><path d="M8.5 17.5 12 21l3.5-3.5"/></symbol>
+  <symbol id="i-split" viewBox="0 0 24 24"><path d="M12 3v9"/><path d="M6 21v-4a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v4"/><path d="M3.5 18.5 6 21l2.5-2.5"/><path d="M15.5 18.5 18 21l2.5-2.5"/></symbol>
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5"/></symbol>
+  <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.35-5.65"/><path d="M20 4v4.5h-4.5"/></symbol>
+  <symbol id="i-scan" viewBox="0 0 24 24"><path d="M4 8V6a2 2 0 0 1 2-2h2"/><path d="M16 4h2a2 2 0 0 1 2 2v2"/><path d="M20 16v2a2 2 0 0 1-2 2h-2"/><path d="M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M4 12h16"/></symbol>
+  <symbol id="i-compress" viewBox="0 0 24 24"><path d="M4 14h6v6"/><path d="M20 10h-6V4"/><path d="M14 10l6-6"/><path d="M4 20l6-6"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94z"/></symbol>
+  <symbol id="i-text" viewBox="0 0 24 24"><path d="M4 8V5h16v3"/><path d="M12 5v14"/><path d="M9 19h6"/></symbol>
+  <symbol id="i-word" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 12l1.5 5 2-3.5 2 3.5 1.5-5"/></symbol>
+  <symbol id="i-topdf" viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M8.5 14.5h7"/><path d="M12.5 11.5l3 3-3 3"/></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/><path d="M3 15h18"/><path d="M9 4v16"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="8.5" cy="9.5" r="1.5"/><path d="M21 15l-4.5-4.5L7 20"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9a2.83 2.83 0 0 0-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></symbol>
+  <symbol id="i-hash" viewBox="0 0 24 24"><path d="M5 9h14"/><path d="M5 15h14"/><path d="M10 4 8 20"/><path d="M16 4l-2 16"/></symbol>
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.4 6 11a6 6 0 0 1-12 0c0-4.6 6-11 6-11z"/></symbol>
+  <symbol id="i-sign" viewBox="0 0 24 24"><path d="M3 16c2.5 0 3.5-8 6-8 2 0 0 8 2.5 8 1.8 0 2-3.5 3.8-3.5 1.5 0 1.2 3.5 3.2 3.5H21"/><path d="M3 20h18"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+  <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.75-1.4"/></symbol>
+  <symbol id="i-redact" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7.5h8"/><rect x="7.5" y="10.5" width="9" height="3.2" rx="1" fill="currentColor" stroke="none"/><path d="M8 17h5"/></symbol>
+  <symbol id="i-summary" viewBox="0 0 24 24"><path d="M4 6h9"/><path d="M4 11h6"/><path d="M4 16h8"/><path d="M17.5 9l1.2 2.8 2.8 1.2-2.8 1.2-1.2 2.8-1.2-2.8-2.8-1.2 2.8-1.2z"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-11.5 7.2L4 20l.9-4.2A8 8 0 1 1 20 12z"/><path d="M9 10.5h6"/><path d="M9 14h3.5"/></symbol>
+  <symbol id="i-translate" viewBox="0 0 24 24"><path d="M4 5h8"/><path d="M8 3v2"/><path d="M10.5 5c-.5 3.5-3 6.5-6 8"/><path d="M6 8.5c1 2 2.8 3.6 5 4.5"/><path d="M13 21l4-9 4 9"/><path d="M14.4 18h5.2"/></symbol>
+  <symbol id="i-flow" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="12" r="2.5"/><path d="M8.5 6H10a5.5 6 0 0 1 5.5 6"/><path d="M8.5 18H10a5.5 6 0 0 0 5.5-6"/></symbol>
+  <symbol id="i-pointer" viewBox="0 0 24 24"><path d="M5 4l6.5 16 2.3-6.7L20.5 11z"/></symbol>
+  <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 15V4"/><path d="M7.5 8.5 12 4l4.5 4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="M7.5 10.5 12 15l4.5-4.5"/><path d="M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></symbol>
+  <symbol id="i-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8"/><path d="M12 16v4"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></symbol>
+  <symbol id="i-team" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 14.2a6.5 6.5 0 0 1 3.5 5.8"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12"/><path d="M18 6 6 18"/></symbol>
+  <symbol id="i-grip" viewBox="0 0 16 16"><g fill="currentColor" stroke="none"><circle cx="5.5" cy="3.5" r="1.3"/><circle cx="10.5" cy="3.5" r="1.3"/><circle cx="5.5" cy="8" r="1.3"/><circle cx="10.5" cy="8" r="1.3"/><circle cx="5.5" cy="12.5" r="1.3"/><circle cx="10.5" cy="12.5" r="1.3"/></g></symbol>
+</svg>
+
+<a class="skip" href="#main" data-i18n="skip">ข้ามไปยังเนื้อหา</a>
+
+<!-- ========== Header ========== -->
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="/th/">
+      <svg class="logo" aria-hidden="true"><use href="#logo-mark"/></svg>
+      <span>Mergepdftool</span>
+    </a>
+
+    <nav class="nav" aria-label="เมนูหลัก" data-i18n-aria="aria.nav">
+      <a href="/th/merge-pdf/" data-i18n="t.merge">รวม PDF</a>
+      <a href="/th/compress-pdf/" data-i18n="t.compress">บีบอัด PDF</a>
+      <a href="#tools" data-goto-filter="convert" data-i18n="nav.convert">แปลงไฟล์</a>
+      <a href="#tools" data-goto-filter="all" data-i18n="nav.all">เครื่องมือทั้งหมด</a>
+    </nav>
+
+    <div class="bar-actions">
+      <nav class="lang" aria-label="ภาษา" data-i18n-aria="aria.lang">
+        <a href="/" hreflang="en" lang="en" data-lang-link="en">EN</a>
+        <a href="/th/" hreflang="th" lang="th" data-lang-link="th" aria-current="true">TH</a>
+      </nav>
+      <a class="btn btn-primary btn-sm" href="/th/merge-pdf/" data-i18n="nav.cta">รวมไฟล์ PDF</a>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="เปิดเมนู" data-i18n-aria="aria.menu">
+        <svg class="ic i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="ic i-close" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <div class="wrap">
+      <a href="/th/merge-pdf/" data-i18n="t.merge">รวม PDF</a>
+      <a href="/th/compress-pdf/" data-i18n="t.compress">บีบอัด PDF</a>
+      <a href="#tools" data-goto-filter="convert" data-i18n="nav.convert">แปลงไฟล์</a>
+      <a href="#tools" data-goto-filter="all" data-i18n="nav.all">เครื่องมือทั้งหมด</a>
+      <a class="btn btn-primary" href="/th/merge-pdf/" data-i18n="nav.cta">รวมไฟล์ PDF</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ========== Hero ========== -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow" data-i18n="hero.eyebrow">เครื่องมือ PDF ใช้ง่าย สำหรับงานทุกวัน</p>
+      <h1 data-i18n="hero.h1"><span class="nw">เครื่องมือ PDF</span> <span class="nw">ครบทุกงาน</span><span class="accent">รวมไว้ในที่เดียว</span></h1>
+      <!-- Claim check: "free to start" must match the live product before launch. -->
+      <p class="lede" data-i18n="hero.lede">รวม แยก บีบอัด แปลงไฟล์ หมุนหน้า ใส่รหัส และเซ็นเอกสาร PDF ได้ในไม่กี่คลิก ขั้นตอนชัดเจน หน้าจอไม่รก และเริ่มใช้ได้ฟรี</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="/th/merge-pdf/"><span data-i18n="hero.cta1">รวมไฟล์ PDF</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#tools" data-goto-filter="all" data-i18n="hero.cta2">ดูเครื่องมือทั้งหมด</a>
+      </div>
+      <ul class="trust">
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.1">เริ่มใช้ได้ฟรี</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.2">ไม่ต้องติดตั้งโปรแกรม</span></li>
+        <li><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="trust.3">ใช้ได้ทั้งมือถือและคอมพิวเตอร์</span></li>
+      </ul>
+    </div>
+
+    <!-- Product preview: illustration only, not a working form -->
+    <div class="preview" aria-hidden="true">
+      <div class="pv-card">
+        <div class="pv-head">
+          <span class="tile"><svg class="ic"><use href="#i-merge"/></svg></span>
+          <div>
+            <strong data-i18n="t.merge">รวม PDF</strong>
+            <small data-i18n="pv.meta">3 ไฟล์ · ลากเพื่อสลับลำดับ</small>
+          </div>
+        </div>
+        <ul class="pv-files">
+          <li><svg class="grip"><use href="#i-grip"/></svg><span class="pdf">PDF</span><span class="fname">Invoice_October.pdf</span><span class="pages" data-i18n="pv.p2">2 หน้า</span></li>
+          <li class="is-moving"><svg class="grip"><use href="#i-grip"/></svg><span class="pdf">PDF</span><span class="fname">Signed_contract.pdf</span><span class="pages" data-i18n="pv.p6">6 หน้า</span></li>
+          <li><svg class="grip"><use href="#i-grip"/></svg><span class="pdf">PDF</span><span class="fname">Receipts_scan.pdf</span><span class="pages" data-i18n="pv.p3">3 หน้า</span></li>
+        </ul>
+        <div class="pv-foot">
+          <span class="result"><svg class="ic"><use href="#i-check"/></svg>merged.pdf · <span data-i18n="pv.p11">11 หน้า</span></span>
+          <span class="fake-btn"><span data-i18n="pv.btn">รวมไฟล์</span><svg class="ic"><use href="#i-arrow"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== Tools ========== -->
+<section class="tools" id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker"><span class="num">01</span><span data-i18n="tools.kicker">เครื่องมือทั้งหมด</span></p>
+      <h2 data-i18n="tools.title">เลือกเครื่องมือให้ตรงกับงาน</h2>
+      <p class="sec-sub" data-i18n="tools.sub">เลือกหมวดงาน แล้วเปิดเครื่องมือที่ต้องการ ทุกเครื่องมือใช้ขั้นตอนง่ายๆ แบบเดียวกัน</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="กรองเครื่องมือตามหมวดงาน" data-i18n-aria="aria.filters">
+      <button type="button" data-filter="all" aria-pressed="true" data-i18n="f.all">ทั้งหมด</button>
+      <button type="button" data-filter="workflow" aria-pressed="false" data-i18n="f.workflow">เวิร์กโฟลว์</button>
+      <button type="button" data-filter="organize" aria-pressed="false" data-i18n="f.organize">จัดหน้า</button>
+      <button type="button" data-filter="optimize" aria-pressed="false" data-i18n="f.optimize">ปรับแต่งไฟล์</button>
+      <button type="button" data-filter="convert" aria-pressed="false" data-i18n="f.convert">แปลงไฟล์</button>
+      <button type="button" data-filter="edit" aria-pressed="false" data-i18n="f.edit">แก้ไข</button>
+      <button type="button" data-filter="security" aria-pressed="false" data-i18n="f.security">ความปลอดภัย</button>
+      <button type="button" data-filter="ai" aria-pressed="false" data-i18n="f.ai">เครื่องมือ AI</button>
+    </div>
+    <p class="count" id="tool-count" aria-live="polite"></p>
+
+    <ul class="grid">
+      <!-- Organize -->
+      <li class="tool" data-cat="organize"><a class="tool-link" href="/th/merge-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-merge"/></svg></span>
+        <h3 data-i18n="t.merge">รวม PDF</h3>
+        <p data-i18n="d.merge">รวมหลายไฟล์ PDF เป็นไฟล์เดียว เรียงลำดับได้ตามต้องการ</p>
+      </a></li>
+      <li class="tool" data-cat="organize"><a class="tool-link" href="/th/split-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-split"/></svg></span>
+        <h3 data-i18n="t.split">แยก PDF</h3>
+        <p data-i18n="d.split">ดึงหน้าเดียวหรือช่วงหน้าที่ต้องการ ออกมาเป็นไฟล์ PDF แยก</p>
+      </a></li>
+      <li class="tool" data-cat="organize"><a class="tool-link" href="/th/organize-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-grid"/></svg></span>
+        <h3 data-i18n="t.organize">จัดเรียงหน้า PDF</h3>
+        <p data-i18n="d.organize">สลับลำดับ ลบ หรือเพิ่มหน้า แล้วบันทึกเป็นไฟล์ใหม่ที่เรียบร้อย</p>
+      </a></li>
+      <li class="tool" data-cat="organize"><a class="tool-link" href="/th/rotate-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-rotate"/></svg></span>
+        <h3 data-i18n="t.rotate">หมุน PDF</h3>
+        <p data-i18n="d.rotate">หมุนหน้าที่ตะแคงหรือกลับหัว ให้ตั้งตรงอ่านง่าย</p>
+      </a></li>
+      <li class="tool" data-cat="organize"><a class="tool-link" href="/th/scan-to-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-scan"/></svg></span>
+        <h3 data-i18n="t.scan">สแกนเป็น PDF</h3>
+        <p data-i18n="d.scan">ใช้กล้องมือถือสแกนเอกสารกระดาษ แล้วบันทึกเป็น PDF</p>
+      </a></li>
+
+      <!-- Optimize -->
+      <li class="tool" data-cat="optimize"><a class="tool-link" href="/th/compress-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-compress"/></svg></span>
+        <h3 data-i18n="t.compress">บีบอัด PDF</h3>
+        <p data-i18n="d.compress">ลดขนาดไฟล์ PDF ให้เล็กลง ส่งอีเมลและอัปโหลดได้ง่ายขึ้น</p>
+      </a></li>
+      <li class="tool" data-cat="optimize"><a class="tool-link" href="/th/repair-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-wrench"/></svg></span>
+        <h3 data-i18n="t.repair">ซ่อม PDF</h3>
+        <p data-i18n="d.repair">ช่วยกู้เนื้อหาจากไฟล์ PDF ที่เสียหรือเปิดไม่ได้</p>
+      </a></li>
+      <li class="tool" data-cat="optimize"><a class="tool-link" href="/th/ocr-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-text"/></svg></span>
+        <h3 data-i18n="t.ocr">OCR PDF</h3>
+        <p data-i18n="d.ocr">แปลงหน้าที่สแกนมา ให้ค้นหาและคัดลอกข้อความได้</p>
+      </a></li>
+
+      <!-- Convert -->
+      <li class="tool" data-cat="convert"><a class="tool-link" href="/th/pdf-to-word/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-word"/></svg></span>
+        <h3 data-i18n="t.pdf2word">PDF เป็น Word</h3>
+        <p data-i18n="d.pdf2word">แปลง PDF เป็นไฟล์ Word ที่แก้ไขต่อได้</p>
+      </a></li>
+      <li class="tool" data-cat="convert"><a class="tool-link" href="/th/word-to-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-topdf"/></svg></span>
+        <h3 data-i18n="t.word2pdf">Word เป็น PDF</h3>
+        <p data-i18n="d.word2pdf">บันทึกไฟล์ DOC และ DOCX เป็น PDF ที่เปิดเครื่องไหนก็หน้าตาเหมือนเดิม</p>
+      </a></li>
+      <li class="tool" data-cat="convert"><a class="tool-link" href="/th/pdf-to-excel/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-table"/></svg></span>
+        <h3 data-i18n="t.pdf2excel">PDF เป็น Excel</h3>
+        <p data-i18n="d.pdf2excel">ย้ายตารางจาก PDF ไปเป็นสเปรดชีตที่ใช้งานต่อได้</p>
+      </a></li>
+      <li class="tool" data-cat="convert"><a class="tool-link" href="/th/jpg-to-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span>
+        <h3 data-i18n="t.jpg2pdf">JPG เป็น PDF</h3>
+        <p data-i18n="d.jpg2pdf">รวมรูปถ่ายและรูปภาพหลายรูป เป็น PDF ไฟล์เดียวที่เรียบร้อย</p>
+      </a></li>
+      <li class="tool" data-cat="convert"><a class="tool-link" href="/th/pdf-to-jpg/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-image"/></svg></span>
+        <h3 data-i18n="t.pdf2jpg">PDF เป็น JPG</h3>
+        <p data-i18n="d.pdf2jpg">บันทึกแต่ละหน้าเป็นรูปภาพ หรือดึงรูปที่อยู่ในไฟล์ออกมา</p>
+      </a></li>
+
+      <!-- Edit -->
+      <li class="tool" data-cat="edit"><a class="tool-link" href="/th/edit-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-edit"/></svg></span>
+        <h3 data-i18n="t.edit">แก้ไข PDF</h3>
+        <p data-i18n="d.edit">เพิ่มข้อความ รูปภาพ และรูปทรงลงบนหน้าไหนก็ได้</p>
+      </a></li>
+      <li class="tool" data-cat="edit"><a class="tool-link" href="/th/add-page-numbers/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-hash"/></svg></span>
+        <h3 data-i18n="t.pagenum">ใส่เลขหน้า</h3>
+        <p data-i18n="d.pagenum">ใส่เลขหน้า เลือกตำแหน่ง ขนาด และรูปแบบได้เอง</p>
+      </a></li>
+      <li class="tool" data-cat="edit"><a class="tool-link" href="/th/add-watermark/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-drop"/></svg></span>
+        <h3 data-i18n="t.watermark">ใส่ลายน้ำ</h3>
+        <p data-i18n="d.watermark">ประทับข้อความหรือโลโก้ลงบนหน้า เพื่อบอกเจ้าของหรือสถานะเอกสาร</p>
+      </a></li>
+      <li class="tool" data-cat="edit"><a class="tool-link" href="/th/sign-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-sign"/></svg></span>
+        <h3 data-i18n="t.sign">เซ็น PDF</h3>
+        <p data-i18n="d.sign">เซ็นเอกสารด้วยตัวเอง หรือส่งให้คนอื่นเซ็น</p>
+      </a></li>
+
+      <!-- Security -->
+      <li class="tool" data-cat="security"><a class="tool-link" href="/th/protect-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-lock"/></svg></span>
+        <h3 data-i18n="t.protect">ใส่รหัส PDF</h3>
+        <p data-i18n="d.protect">ตั้งรหัสผ่าน ให้เปิดไฟล์ได้เฉพาะคนที่ควรเห็น</p>
+      </a></li>
+      <li class="tool" data-cat="security"><a class="tool-link" href="/th/unlock-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-unlock"/></svg></span>
+        <h3 data-i18n="t.unlock">ปลดรหัส PDF</h3>
+        <p data-i18n="d.unlock">เอารหัสผ่านออกจากไฟล์ PDF ที่คุณมีสิทธิ์เปิดอยู่แล้ว</p>
+      </a></li>
+      <li class="tool" data-cat="security"><a class="tool-link" href="/th/redact-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-redact"/></svg></span>
+        <h3 data-i18n="t.redact">ปิดทับข้อมูลลับ</h3>
+        <p data-i18n="d.redact">ปิดทับข้อความและรูปที่เป็นข้อมูลส่วนตัวแบบถาวร</p>
+      </a></li>
+
+      <!-- AI tools -->
+      <li class="tool" data-cat="ai"><a class="tool-link" href="/th/summarize-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-summary"/></svg></span>
+        <h3><span data-i18n="t.summarize">สรุป PDF</span><span class="tag">AI</span></h3>
+        <p data-i18n="d.summarize">สรุปประเด็นสำคัญจากเอกสารยาวๆ ให้อ่านจบได้เร็วขึ้น</p>
+      </a></li>
+      <li class="tool" data-cat="ai"><a class="tool-link" href="/th/chat-with-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <h3><span data-i18n="t.chat">ถามตอบกับ PDF</span><span class="tag">AI</span></h3>
+        <p data-i18n="d.chat">พิมพ์คำถาม แล้วได้คำตอบจากเนื้อหาในไฟล์ของคุณ</p>
+      </a></li>
+      <li class="tool" data-cat="ai"><a class="tool-link" href="/th/translate-pdf/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-translate"/></svg></span>
+        <h3><span data-i18n="t.translate">แปลภาษา PDF</span><span class="tag">AI</span></h3>
+        <p data-i18n="d.translate">แปลเอกสารเป็นภาษาอื่น โดยคงรูปแบบหน้าให้ใกล้เคียงต้นฉบับ</p>
+      </a></li>
+
+      <!-- Workflows -->
+      <li class="tool" data-cat="workflow"><a class="tool-link" href="/th/workflows/">
+        <span class="tile"><svg class="ic" aria-hidden="true"><use href="#i-flow"/></svg></span>
+        <h3 data-i18n="t.workflow">สร้างเวิร์กโฟลว์</h3>
+        <p data-i18n="d.workflow">ต่อหลายเครื่องมือเป็นชุดเดียว เช่น รวม → บีบอัด → ใส่รหัส แล้วสั่งทำงานในครั้งเดียว</p>
+      </a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== How it works ========== -->
+<section class="steps" aria-labelledby="steps-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker"><span class="num">02</span><span data-i18n="steps.kicker">วิธีใช้งาน</span></p>
+      <h2 id="steps-title" data-i18n="steps.title">เสร็จได้ใน 3 ขั้นตอน</h2>
+    </div>
+    <ol class="step-list">
+      <li class="step">
+        <div class="step-top"><span class="step-num">01</span><span class="round"><svg class="ic" aria-hidden="true"><use href="#i-pointer"/></svg></span></div>
+        <h3 data-i18n="s1.t">เลือกเครื่องมือ</h3>
+        <p data-i18n="s1.d">เลือกงานที่ต้องการ เช่น รวมไฟล์ บีบอัด หรือแปลงไฟล์</p>
+      </li>
+      <li class="step">
+        <div class="step-top"><span class="step-num">02</span><span class="round"><svg class="ic" aria-hidden="true"><use href="#i-upload"/></svg></span></div>
+        <h3 data-i18n="s2.t">เพิ่มไฟล์</h3>
+        <p data-i18n="s2.d">ลากไฟล์มาวาง หรือเลือกไฟล์จากเครื่องของคุณ</p>
+      </li>
+      <li class="step">
+        <div class="step-top"><span class="step-num">03</span><span class="round"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg></span></div>
+        <h3 data-i18n="s3.t">ดาวน์โหลดไฟล์</h3>
+        <p data-i18n="s3.d">ตรวจไฟล์ใหม่ แล้วกดบันทึก เท่านี้ก็เสร็จ</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== Work your way ========== -->
+<section class="ways" aria-labelledby="ways-title">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker"><span class="num">03</span><span data-i18n="ways.kicker">ใช้งานแบบที่คุณถนัด</span></p>
+      <h2 id="ways-title" data-i18n="ways.title">ใช้ได้ทุกที่ที่คุณทำงาน</h2>
+      <p class="sec-sub" data-i18n="ways.sub">เปิดในเบราว์เซอร์แล้วเริ่มได้เลย ไม่ต้องดาวน์โหลด ไม่ต้องตั้งค่า</p>
+    </div>
+    <div class="ways-grid">
+      <article class="way">
+        <span class="round"><svg class="ic" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+        <h3 data-i18n="w1.t">บนคอมพิวเตอร์</h3>
+        <p data-i18n="w1.d">เปิดเครื่องมือในเบราว์เซอร์ได้ทั้ง Windows, Mac และ Linux ไม่ต้องติดตั้งหรืออัปเดตโปรแกรม</p>
+      </article>
+      <article class="way">
+        <span class="round"><svg class="ic" aria-hidden="true"><use href="#i-phone"/></svg></span>
+        <h3 data-i18n="w2.t">บนมือถือ</h3>
+        <p data-i18n="w2.d">เครื่องมือชุดเดียวกัน ออกแบบให้ใช้บนจอเล็กได้สะดวก สแกน เซ็น และส่งต่อได้จากมือถือ</p>
+      </article>
+      <article class="way">
+        <span class="pill" data-i18n="ways.soon">เร็วๆ นี้</span>
+        <span class="round"><svg class="ic" aria-hidden="true"><use href="#i-team"/></svg></span>
+        <h3 data-i18n="w3.t">สำหรับทีม</h3>
+        <p data-i18n="w3.d">เวิร์กโฟลว์ที่ใช้ร่วมกันและแพ็กเกจสำหรับทีม เหมาะกับธุรกิจที่จัดการเอกสารจำนวนมาก</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta">
+  <div class="wrap">
+    <div class="cta-box">
+      <div class="cta-text">
+        <h2 data-i18n="cta.title">มีไฟล์ PDF หลายไฟล์ที่ต้องรวม?</h2>
+        <p data-i18n="cta.sub">รวมเป็นไฟล์เดียวที่เรียบร้อยได้ในไม่กี่คลิก</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-light" href="/th/merge-pdf/"><span data-i18n="cta.btn1">รวมไฟล์ PDF เลย</span><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-outline-light" href="#tools" data-goto-filter="all" data-i18n="cta.btn2">ดูเครื่องมือทั้งหมด</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== Footer ========== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/th/">
+          <svg class="logo" aria-hidden="true"><use href="#logo-mark"/></svg>
+          <span>Mergepdftool</span>
+        </a>
+        <p data-i18n="foot.tag">เครื่องมือ PDF ใช้ง่าย สำหรับงานทุกวัน</p>
+        <a class="endorse" href="https://rank-path.com" rel="noopener">
+          <small data-i18n="foot.built">พัฒนาโดย</small>
+          <strong>RankPath Labs</strong>
+        </a>
+      </div>
+      <div class="foot-cols">
+        <div>
+          <h3 data-i18n="f.organize">จัดหน้า</h3>
+          <ul>
+            <li><a href="/th/merge-pdf/" data-i18n="t.merge">รวม PDF</a></li>
+            <li><a href="/th/split-pdf/" data-i18n="t.split">แยก PDF</a></li>
+            <li><a href="/th/organize-pdf/" data-i18n="t.organize">จัดเรียงหน้า PDF</a></li>
+            <li><a href="/th/compress-pdf/" data-i18n="t.compress">บีบอัด PDF</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="f.convert">แปลงไฟล์</h3>
+          <ul>
+            <li><a href="/th/pdf-to-word/" data-i18n="t.pdf2word">PDF เป็น Word</a></li>
+            <li><a href="/th/word-to-pdf/" data-i18n="t.word2pdf">Word เป็น PDF</a></li>
+            <li><a href="/th/jpg-to-pdf/" data-i18n="t.jpg2pdf">JPG เป็น PDF</a></li>
+            <li><a href="/th/pdf-to-excel/" data-i18n="t.pdf2excel">PDF เป็น Excel</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="f.security">ความปลอดภัย</h3>
+          <ul>
+            <li><a href="/th/protect-pdf/" data-i18n="t.protect">ใส่รหัส PDF</a></li>
+            <li><a href="/th/unlock-pdf/" data-i18n="t.unlock">ปลดรหัส PDF</a></li>
+            <li><a href="/th/sign-pdf/" data-i18n="t.sign">เซ็น PDF</a></li>
+            <li><a href="/th/redact-pdf/" data-i18n="t.redact">ปิดทับข้อมูลลับ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 data-i18n="foot.company">บริษัท</h3>
+          <ul>
+            <li><a href="/th/about/" data-i18n="foot.about">เกี่ยวกับเรา</a></li>
+            <li><a href="/th/contact/" data-i18n="foot.contact">ติดต่อเรา</a></li>
+            <li><a href="/th/privacy/" data-i18n="foot.privacy">นโยบายความเป็นส่วนตัว</a></li>
+            <li><a href="/th/terms/" data-i18n="foot.terms">ข้อกำหนดการใช้งาน</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p data-i18n="foot.rights">© 2026 Mergepdftool สงวนลิขสิทธิ์</p>
+      <p>rank-path.com</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/site.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* Tool filter */
+  var filterBtns = Array.prototype.slice.call(document.querySelectorAll('[data-filter]'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.tool'));
+  var countEl = document.getElementById('tool-count');
+  var visible = cards.length;
+
+  function countText(n) {
+    return MPT.lang === 'th' ? 'แสดง ' + n + ' เครื่องมือ' : 'Showing ' + n + (n === 1 ? ' tool' : ' tools');
+  }
+
+  function applyFilter(f) {
+    if (!filterBtns.some(function (b) { return b.getAttribute('data-filter') === f; })) f = 'all';
+    visible = 0;
+    filterBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-filter') === f)); });
+    cards.forEach(function (c) {
+      var show = f === 'all' || c.getAttribute('data-cat') === f;
+      c.hidden = !show;
+      if (show) visible++;
+    });
+    countEl.textContent = countText(visible);
+  }
+
+  filterBtns.forEach(function (b) {
+    b.addEventListener('click', function () { applyFilter(b.getAttribute('data-filter')); });
+  });
+  document.querySelectorAll('[data-goto-filter]').forEach(function (a) {
+    a.addEventListener('click', function () { applyFilter(a.getAttribute('data-goto-filter')); });
+  });
+
+  /* Other pages link here with ?filter=convert#tools */
+  applyFilter(new URLSearchParams(location.search).get('filter') || 'all');
+})();
+</script>
+</body>
+</html>

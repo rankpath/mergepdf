@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://mergepdftool.rank-path.com/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mergepdftool.rank-path.com/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://mergepdftool.rank-path.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mergepdftool.rank-path.com/"/>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://mergepdftool.rank-path.com/th/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mergepdftool.rank-path.com/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://mergepdftool.rank-path.com/th/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mergepdftool.rank-path.com/"/>
+    <lastmod>2026-10-09</lastmod>
   </url>
   <url>
     <loc>https://mergepdftool.rank-path.com/merge-pdf/</loc>
-    <lastmod>2026-10-07</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mergepdftool.rank-path.com/merge-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://mergepdftool.rank-path.com/th/merge-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mergepdftool.rank-path.com/merge-pdf/"/>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://mergepdftool.rank-path.com/th/merge-pdf/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mergepdftool.rank-path.com/merge-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="th" href="https://mergepdftool.rank-path.com/th/merge-pdf/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mergepdftool.rank-path.com/merge-pdf/"/>
+    <lastmod>2026-10-09</lastmod>
   </url>
 </urlset>
